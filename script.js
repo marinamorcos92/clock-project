@@ -22,6 +22,18 @@ function updateDate() {
       "hh:mm:ss [<small>]A[</small>]"
     );
   }
+
+  let sydneyElement = document.querySelector("#sydney");
+  if (cairoElement) {
+    let sydneyDateElement = sydneyElement.querySelector(".date");
+    let sydneyTimeElement = sydneyElement.querySelector(".time");
+    let sydneyTime = moment().tz("Australia/Sydney");
+
+    sydneyDateElement.innerHTML = sydneyTime.format("dddd MMMM	Do YYYY");
+    sydneyTimeElement.innerHTML = sydneyTime.format(
+      "hh:mm:ss [<small>]A[</small>]"
+    );
+  }
 }
 updateDate();
 setInterval(updateDate, 1000);
